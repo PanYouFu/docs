@@ -119,9 +119,9 @@ const test2 = test.mybind(o, '===', '---')
 test2() // qqqeee===---
 ```
 
-### 封装Currying
+## 封装Currying
 
-#### 初步封装
+### 初步封装
 
 实现参数拼接，实现扩展一个参数调用。即：`f(3, 4, 5)`经过初步`currying`后，`t=currying(f, 3)`，`t(4, 5)`
 
@@ -153,48 +153,18 @@ const o = {
 o.t(6, 7) // 30
 ```
 
-#### 进一步封装
+### 进一步封装
 
 初步封装存在一定的缺陷，不能实现扩展多个参数。如上述案例，`o.t(6, 7)`不能扩展为`o.t(6)(7)`。基于此缺陷，我们需要进一步封装。思路：当我们发现返回的函数，参数还是多个时进行递归。
 
-```
-// 初步封装
-// const simpleCurrying = function (fn) {
-//   // 获取除了当前函数的除了第一项外的参数
-//   const args = Array.prototype.slice.call(arguments, 1)
-//   // 返回一个方法，这个方法在调用时，可以不用再传第一参数
-//   // 即在实际使用时，有参数复用的好处
-//   return function () {
-//     // 获取到该方法使用时，获得的参数
-//     // 将该参数与之前的参数拼接，
-//     // 这里有一个闭包，因为这个函数用到了实际上下文之外的参数（args）
-//     let newArgs = args.concat(Array.prototype.slice.call(arguments))
-//     // 改变fn执行时的上下文，绑定为当前执行栈的上下文
-//     fn.apply(this, newArgs)
-//   }
-// }
-// var f = function (a, b, c) {
-//   console.log('this--',this)
-//   console.log(a + b + c + this.x + this.y)
-// }
-// var o = {
-//   x: 5,
-//   y: 9,
-//   t: simpleCurrying(f, 3)
-// }
-// var x = 33
-// var y = 99
-// var t2 = currying(f, 3)
-// o.t(6, 7)
-// t2(6, 7)
-
+```javascript
 const currying = function (fn, _args) {
     // 保存this，递归时保持this指向
     const _this = this
     // 获取原函数参数个数
     const len = fn.length
     // 获取传入的参数
-    let args = _args || []
+    const args = _args || []
   
     // 科里化后返回一个函数
     return function () {
@@ -203,32 +173,103 @@ const currying = function (fn, _args) {
       const argsNow = Array.prototype.slice.call(arguments)
       // 使用 apply 方法是因为：apply方法使用格式为apply(obj, [a, b, c])
       // 这样可以将 argsNow 中的参数 依次 push 进 args
-      // Array.prototype.push.apply(args, argsNow)
-  
-      if (argsNow.length === 1) {
-        Array.prototype.push.apply(args, argsNow)
-        // console.log(_this)
+      // 这样是改变的 args 的实际值，而不仅仅是修改引用，这样，后续递归时，才会获取到新的args的值
+      Array.prototype.push.apply(args, argsNow)
+  		
+      // 如果参数整体个数依旧少于原函数需要参数个数，则进一步递归
+      if (args.length < len) {
         return currying.call(_this, fn, args)
       } else if (argsNow.length === 2){
         // 参数收集完毕，则执行fn，清空args
-        // const argsFn = args
-        // fn.apply(_this, argsFn)
-        args = [1, 2, 3, 4, 5]
-        // args.splice(0, args.length)
-        console.log('args-', args)
+        fn.apply(_this, argsFn)
+        args.splice(0, args.length)
       }
     }
   }
   
+	// 执行以下案例
   const testFn = function (a, b, c, d, e) {
     console.log(a, b, c, d, e)
   }
   
   let f1 = currying(testFn)
-  let x = f1(2)(3, 4)
-  f1()
-  // f1('q')('w')('e')('r')('d')
-  // f1('ss')('cc')('oo')('ll~~')('xx')
-  
+  f1(2)(3, 4)(5, 6) // 2 3 4 5 6
+  f1('q')('w')('e')('r')('d') // q w e r d
+
+	// 案例2，this
+	const fn = function(x, y, z) {
+    console.log(`${this.a}-${this.b}-${this.c}-${x}-${y}-${z}`)
+  }
+  const obj = {
+    a: 'aaa',
+    b: 'bbb',
+    c: 'ccc',
+    curry: currying
+  }
+  const f = obj.curry(fn)
+  f(1, 2, 3) // aaa-bbb-ccc-1-2-3
 ```
+
+## 经典面试题
+
+```javascript
+// 实现一个add方法，使计算结果能够满足如下预期：
+add(1)(2)(3) // 6
+add(1, 2, 3)(4) // 10
+add(1)(2)(3)(4)(5) // 15
+```
+
+#### 思路
+
+1、add不仅需要计算参数和，还得再抛出一个计算参数和的函数。
+
+```javascript
+// 累加函数
+const arr = [3,9,4,3,6,0,9];
+const add = function(arr.reduce(prev, cur) {
+  return prev + cur
+})
+```
+
+2、每一次调用后返回的函数利用`toString`方法隐式转换
+
+```javascript
+// toString 隐式调用
+const f = function() {
+	return 'function'
+}
+f.toString = function(){ return 'use toString' }
+
+console.log(f) // 'use toString'
+```
+
+#### 实现
+
+```javascript
+function add() {
+  // 第一次执行时，定义一个数组专门用来存储所有的参数
+  const _args = Array.prototype.slice.call(arguments)
+
+  // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+  const _adder = function () {
+    _args.push(...arguments)
+    return _adder
+  }
+
+  // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+  _adder.toString = function () {
+    return _args.reduce(function (prev, cur) {
+      return prev + cur
+    })
+  }
+  return _adder
+}
+
+// add(1)(2)(3) 最后返回的还是一个_adder函数
+// 但是通过toString方法，当我在获取这个函数的时候，执行了toString方法（隐式调用）
+// _args一直保持的是最新的，当前参数组成的数组
+console.log(add(1)(2)(3))
+```
+
+
 
