@@ -20,14 +20,15 @@ const currying = function (fn, _args) {
     if (args.length < len) {
       return currying.call(_this, fn, args)
     } else {
-      // 参数收集完毕，则执行fn，清空args
-      fn.apply(_this, args)
+      // 参数收集完毕，则执行fn，清空args，抛出需要科里化的函数的执行结果
+      const res = fn.apply(_this, args)
       args.splice(0, args.length)
+      return res
     }
   }
 }
 
-// 执行以下案例
+// 案例1
 const testFn = function (a, b, c, d, e) {
   console.log(a, b, c, d, e)
 }
@@ -47,4 +48,20 @@ const obj = {
   curry: currying
 }
 const f = obj.curry(fn)
-f(1, 2, 3)
+f(1, 2, 3) // aaa-bbb-ccc-1-2-3
+
+// 案例3
+const p =[
+  { name: 'kk', age: '18' },
+  { name: 'gg', age: '24' }
+]
+
+const getProp = currying(function(obj, key) {
+  return obj[key]
+})
+
+const ages = p.map(item => {
+  return getProp(item)('age')
+})
+
+console.log(ages) // ['18', '24']

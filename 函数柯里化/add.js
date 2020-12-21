@@ -20,4 +20,4 @@ function add() {
 // add(1)(2)(3) 最后返回的还是一个_adder函数
 // 但是通过toString方法，当我在获取这个函数的时候，执行了toString方法（隐式调用）
 // _args一直保持的是最新的，当前参数组成的数组
-console.log(add(1)(2)(3))
+console.log(add(1)(2)(3)) // 6
