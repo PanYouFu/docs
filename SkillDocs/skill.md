@@ -97,7 +97,7 @@ async function async1() {
 
 这个知识点真的是重在理解，一定要理解彻底
 
-```
+```javascript
 for (const macroTask of macroTaskQueue) {
   handleMacroTask();
   
