@@ -450,7 +450,7 @@ for (const macroTask of macroTaskQueue) {
 
 
 
-##9 数据结构算法
+## 9 数据结构算法
 
 - [Linked Lists in JavaScript (ES6 code)](https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3)
 - [DS with JS — Linked Lists — II](https://medium.com/dev-blogs/ds-with-js-linked-lists-ii-3b387596e27e)
