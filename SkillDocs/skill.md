@@ -164,6 +164,9 @@ for (const macroTask of macroTaskQueue) {
 - [CSS retina hairline, the easy way.](http://dieulot.net/css-retina-hairline)
 - [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/5a9923e9518825558251c96a)
 - [回流与重绘：CSS性能让JavaScript变慢？](https://www.zhangxinxu.com/wordpress/2010/01/回流与重绘：css性能让javascript变慢？/)
+- [回流重绘1](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/24)
+- [回流重绘2](https://zhuanlan.zhihu.com/p/82378692)
+- [回流重绘3](https://segmentfault.com/a/1190000017329980)
 - [CSS实现水平垂直居中的1010种方式（史上最全）](https://juejin.im/post/5b9a4477f265da0ad82bf921)
 - [干货!各种常见布局实现](https://juejin.im/post/5aa252ac518825558001d5de)
 - [CSS 常见布局方式](https://juejin.im/post/599970f4518825243a78b9d5)
@@ -274,6 +277,8 @@ for (const macroTask of macroTaskQueue) {
 - [轻松理解webpack热更新原理](https://mp.weixin.qq.com/s/2L9Y0pdwTTmd8U2kXHFlPA)
 - [轻松理解webpack热更新原理](https://juejin.im/post/5de0cfe46fb9a071665d3df0)
 - [揭秘webpack plugin](https://champyin.com/2020/01/12/揭秘webpack-plugin/)
+- [webpack面试](https://juejin.cn/post/6844904094281236487)
+- [webpack编译流程](https://juejin.cn/post/6844903935828819981)
 
 ### 4.2 Babel
 
@@ -434,6 +439,7 @@ for (const macroTask of macroTaskQueue) {
 
 - [从输入URL到页面展示，这中间发生了什么？](https://time.geekbang.org/column/article/117637)
 - [前端经典面试题: 从输入URL到页面加载发生了什么？](https://segmentfault.com/a/1190000006879700)
+- [浏览器渲染](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=zh-cn)
 
 
 
