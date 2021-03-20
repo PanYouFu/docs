@@ -456,7 +456,7 @@ for (const macroTask of macroTaskQueue) {
 
 
 
-##9 数据结构算法
+## 9 数据结构算法
 
 - [Linked Lists in JavaScript (ES6 code)](https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3)
 - [DS with JS — Linked Lists — II](https://medium.com/dev-blogs/ds-with-js-linked-lists-ii-3b387596e27e)
@@ -521,6 +521,7 @@ for (const macroTask of macroTaskQueue) {
 - [20道JS原理题助你面试一臂之力！](https://juejin.im/post/5d2ee123e51d4577614761f8)
 - [一年半经验，百度、有赞、阿里前端面试总结](https://juejin.im/post/5befeb5051882511a8527dbe)
 - [22 道高频 JavaScript 手写面试题及答案](https://juejin.im/post/5d51e16d6fb9a06ae17d6bbc)
+- [手写18道](https://juejin.cn/post/6873513007037546510#heading-10)
 - [面试分享：专科半年经验面试阿里前端P6+总结(附面试真题及答案)](https://juejin.im/post/5a92c23b5188257a6b06110b)
 - [写给女朋友的中级前端面试秘籍](https://juejin.im/post/5e7af0685188255dcf4a497e)
 - [阿里前端攻城狮们写了一份前端面试题答案，请查收](https://juejin.im/post/5e7426d15188254967069c00)
