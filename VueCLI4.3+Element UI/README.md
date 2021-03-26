@@ -527,3 +527,15 @@ module.exports = {
 至此，我们项目基本是搭建初始化完成了，一个使用`ElementUI`，使用`vuex` 进行状态管理，有多环境配置，可以本地mock与联调，且有着相关`lint`校验的项目。但是我们在正式开发中还需要根据实际业务场景，逐步完善我们的一些公共文件，如常量，公共方法等；同时也需要丰富我们的`vue.config.js`，`axios`等文件。
 
 相对`vue cli 2+` 来说，`cli 4+`移除了`.build`文件夹，帮我们完成了很多前期准备，如代码压缩，css预处理等插件的配置。同时也新增了`vue.config.js`文件，方便开发根据实际场景新增或覆盖`webpack`配置。所以相对来说对开发人员还是较为友好的。
+
+
+
+VUE cli + mock.js
+
+https://www.yuque.com/yelai-ovpvq/xir9mr/lwaalg
+
+
+
+[klaw](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjprichardson%2Fnode-klaw) 原本属于 `fs-extra` 的一个功能，但是现在它被抽离出来，它可以用来遍历目录。
+
+https://www.codercto.com/a/85342.html
