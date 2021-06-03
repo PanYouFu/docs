@@ -365,6 +365,7 @@ for (const macroTask of macroTaskQueue) {
 - [Front-End Performance Checklist](https://github.com/thedaviddias/Front-End-Performance-Checklist)
 - [图片与视频懒加载的详细指南](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
 - [使用 Intersection Observer 来懒加载图片](http://deanhume.com/lazy-loading-images-using-intersection-observer/)
+- [性能优化](https://mp.weixin.qq.com/s/PCmCS46GPc6tt1yb9goNFA)
 
 
 
