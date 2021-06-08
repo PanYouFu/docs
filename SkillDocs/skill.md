@@ -501,7 +501,7 @@ for (const macroTask of macroTaskQueue) {
 
 
 
-### 其他
+## 其他
 
 - [深入浅出浏览器渲染原理](https://zhuanlan.zhihu.com/p/53913989)
 - [前端开发如何独立解决跨域问题](https://segmentfault.com/a/1190000010719058)
@@ -531,4 +531,58 @@ for (const macroTask of macroTaskQueue) {
 - [「面试题」20+Vue面试题整理(持续更新)](https://juejin.im/post/5e649e3e5188252c06113021)
 - [「吐血整理」再来一打Webpack面试题(持续更新)](https://juejin.im/post/5e6f4b4e6fb9a07cd443d4a5)
 - [高级前端开发者必会的34道Vue面试题系列](https://juejin.im/post/5e7410ed51882549087dc365)
+
+
+
+
+
+## 追加
+
+### VUE
+
+https://juejin.cn/post/6844903577215827982
+
+[Vue diff](https://juejin.cn/post/6844903607913938951#heading-1)
+
+[VUE技术揭秘](https://ustbhuangyi.github.io/vue-analysis/v2/reactive/)
+
+[VUE源码解读（有简单解释，有复杂解释）](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNjQ1NjMwNw==&action=getalbum&album_id=1619085427984957440&scene=173&from_msgid=2247484028&from_itemidx=1&count=3&nolastread=1#wechat_redirect)
+
+[VUE3面试](https://zhuanlan.zhihu.com/p/352910102)
+
+[Vue3面试2](https://zhuanlan.zhihu.com/p/335478785)
+
+https://juejin.cn/post/6844903920871931917
+
+https://juejin.cn/post/6844903918753808398#heading-2
+
+https://zhuanlan.zhihu.com/p/101330697
+
+https://juejin.cn/post/6844904084374290446#heading-23
+
+https://juejin.cn/post/6844903887162310669#heading-2
+
+https://juejin.cn/post/6844903993374670855#heading-9
+
+https://juejin.cn/post/6844903961745440775#heading-22
+
+https://segmentfault.com/a/1190000012861862
+
+
+
+### 手写
+
+https://juejin.cn/post/6844903911686406158#heading-17
+
+https://juejin.cn/post/6873513007037546510#heading-14
+
+
+
+### 综合类
+
+https://fecommunity.github.io/front-end-interview/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/Web%E5%AE%89%E5%85%A8/2.CSRF%E6%94%BB%E5%87%BB.html
+
+https://muyiy.cn/question/
+
+
 
